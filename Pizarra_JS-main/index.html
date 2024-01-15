@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizarra Multipágina</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="whiteboard.js"></script>
+</head>
+<body>
+  <div id="lienzoContainer">
+    <canvas id="pizarra" width="1800" height="1000"></canvas>
+
+    <div class="controles">
+      <button onclick="activarLapiz()">Lápiz</button>
+      
+      <div class="color-picker">
+        <input type="color" id="colorPicker" onchange="cambiarColorLapiz(this.value)">
+        <label for="colorPicker">Color</label>
+      </div>
+
+      <div class="grosor-wrapper">
+        <label for="grosor" class="grosor-label">Grosor:</label>
+        <input type="range" min="1" max="20" value="5" id="grosor" onchange="cambiarGrosor(this.value)">
+        <span id="grosorValor">5</span>
+      </div>
+
+      <button onclick="activarGomaDeBorrar()">Goma de borrar</button>
+      <button onclick="restablecerPizarra()">Restablecer</button>
+      
+      <!-- Nuevos botones para navegación de páginas -->
+      <button onclick="navegarPagina(-1)"><</button>
+
+      <button onclick="crearNuevaPagina()">+</button>
+
+      <button onclick="navegarPagina(1)">></button>
+
+      <select id="selectorPaginas" onchange="cambiarPagina()">
+        <!-- Las opciones se llenarán dinámicamente con JavaScript -->
+      </select>
+
+      <button onclick="eliminarPagina()">Eliminar</button>
+
+      <!-- Agrega este botón a tus controles existentes -->
+      <button onclick="copiarComoImagen()">Copiar</button>
+      <button onclick="capturarPizarra()">Descargar</button>
+    </div>
+
+    
+  </div>
+</body>
+</html>
